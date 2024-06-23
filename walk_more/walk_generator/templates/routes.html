@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Walking Route Generator</title>
+</head>
+<body>
+    <h1>Walking Route Generator</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Generate Route">
+    </form>
+    {% if destination %}
+        <h2>Route Details</h2>
+        <p>Destination: {{ destination }}</p>
+        <p>Distance: {{ distance }}</p>
+        <h3>Route Steps:</h3>
+        <ul>
+            {% for step in steps %}
+                <li>{{ step.html_instructions|safe }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>

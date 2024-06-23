@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Walk More</title>
+    <script type="importmap">
+      {
+          "imports": {
+          "three": "https://unpkg.com/three@0.122.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.122.0/examples/jsm/"
+          }
+      }
+      </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #080808;
+        }
+        canvas {
+            position: absolute;
+            z-index: 1;
+        }
+        .text-overlay {
+            position: absolute;
+            z-index: 2;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    {% load static %}
+    <div class="text-overlay">Walk More</div>
+    <script type="module" src="{% static '/js/lorenz_attractor.js' %}"></script>
+</body>
+</html>
