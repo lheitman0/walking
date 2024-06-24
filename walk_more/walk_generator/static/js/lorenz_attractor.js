@@ -42,7 +42,7 @@ function init() {
 
     // points to apply to the geometry defined by the curve
     var pcMat = new THREE.PointsMaterial();
-    pcMat.color = new THREE.Color(0x006600);
+    pcMat.color = new THREE.Color(0x967bb6);
     pcMat.transparent = true;
     pcMat.size = 0.01;
     pcMat.blending = THREE.AdditiveBlending;
@@ -76,7 +76,6 @@ function render(a_0, b_0, f_0, g_0) {
     var intersects = raycaster.intersectObject( pc );
     for ( var i = 0; i < intersects.length; i++ ) {
         intersects[i].point.sub( mouse ).multiplyScalar(5);
-        // pc.geometry.colors[intersects[i].index].set(0xffffff);
     }
 
     pc.geometry.colorsNeedUpdate = true;

@@ -14,14 +14,20 @@
     }
     </script>
     <style>
+        @font-face {
+            font-family: Chomsky;
+            src: url('Chomsky.OTF');
+        }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: Chomsky, Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: #f0f0f0;
+            background: black;
+            color: white;
         }
 
         .card-container {
@@ -30,11 +36,8 @@
             gap: 20px;
             padding: 20px;
             justify-content: center;
-            /* Center the cards horizontally */
             align-items: center;
-            /* Center the cards vertically */
         }
-
 
         .card {
             position: relative;
@@ -56,10 +59,11 @@
             position: absolute;
             bottom: 10px;
             left: 10px;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
             color: white;
             padding: 5px 10px;
             transition: opacity 0.5s ease;
+            font-family: Chomsky, Arial, sans-serif;
         }
 
         .card:hover img {
@@ -78,18 +82,11 @@
             <img src="/static/images/original_0f77776a3f1293bf49690974cbec7d2d.jpeg">
             <div class="overlay">Walking With Nietzsche By Riva Melissa-Tez</div>
         </a>
-        <!-- <a href="link1.html" class="card" id="card1">
-            <img src="path/to/your/image1.jpg" alt="Link 1">
-            <div class="overlay">Link 1</div>
-          </a> -->
-        <a href="https://psycnet.apa.org/record/2014-14435-001" class="card" id="card1">
+        <a href="https://psycnet.apa.org/record/2014-14435-001" class="card" id="card2">
             <img src="/static/images/edgedancer.jpeg">
             <div class="overlay">Give your ideas some legs: The positive effect of walking on</div>
         </a>
     </div>
-    <!-- {% load static %} -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
-    <!-- <script type="module" src="{% static '/js/info_idk.js' %}"></script> -->
 </body>
 
 </html>

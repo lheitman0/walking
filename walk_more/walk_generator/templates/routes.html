@@ -1,8 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walking Route Generator</title>
+    <style>
+        @font-face {
+            font-family: Chomsky;
+            src: url('Chomsky.OTF');
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Chomsky, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3, p, label, input, li {
+            font-family: Chomsky, Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form p {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            border: 1px solid white;
+            border-radius: 5px;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1em;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Walking Route Generator</h1>
     <form method="POST">
@@ -11,18 +85,19 @@
         <input type="submit" value="Generate Route">
     </form>
     {% if destination %}
-        <h2>Route Details</h2>
-        <p>Destination: {{ destination }}</p>
-        <p>Distance: {{ distance }}</p>
-        <h3>Route Steps:</h3>
-        <ul>
-            {% for step in steps %}
-                <li>{{ step.html_instructions|safe }}</li>
-            {% endfor %}
-        </ul>
+    <h2>Route Details</h2>
+    <p>Destination: {{ destination }}</p>
+    <p>Distance: {{ distance }}</p>
+    <h3>Route Steps:</h3>
+    <ul>
+        {% for step in steps %}
+        <li>{{ step.html_instructions|safe }}</li>
+        {% endfor %}
+    </ul>
     {% endif %}
     {% if error %}
-        <p>{{ error }}</p>
+    <p>{{ error }}</p>
     {% endif %}
 </body>
+
 </html>

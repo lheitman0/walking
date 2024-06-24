@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Walk More</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Walk More</title>
     <script type="importmap">
-      {
-          "imports": {
-          "three": "https://unpkg.com/three@0.122.0/build/three.module.js",
-          "three/addons/": "https://unpkg.com/three@0.122.0/examples/jsm/"
-          }
-      }
-      </script>
+    {
+        "imports": {
+        "three": "https://unpkg.com/three@0.122.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.122.0/examples/jsm/"
+        }
+    }
+    </script>
     <style>
+        @font-face {
+            font-family: Chomsky;
+            src: url('Chomsky.OTF');
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -25,23 +31,76 @@
             height: 100vh;
             background-color: #080808;
         }
+
         canvas {
             position: absolute;
             z-index: 1;
         }
+
         .text-overlay {
             position: absolute;
             z-index: 2;
             color: white;
-            font-size: 48px;
+            font-family: Chomsky;
+            font-size: 55px;
             font-weight: bold;
             text-align: center;
         }
+
+        .info-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 3;
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            font-family: Chomsky;
+            font-size: 14px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .info-button:hover {
+            background-color: white;
+            color: #080808;
+        }
+
+        .space-prompt {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            color: white;
+            font-family: Chomsky;
+            font-size: 16px;
+            text-align: center;
+            opacity: 1;
+            animation: flash 2s infinite;
+        }
+
+        @keyframes flash {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
+
 <body>
     {% load static %}
     <div class="text-overlay">Walk More</div>
+    <a href="/info" class="info-button">Info</a>
+    <div class="space-prompt">Press Space to Continue</div>
     <script type="module" src="{% static '/js/lorenz_attractor.js' %}"></script>
 </body>
+
 </html>
